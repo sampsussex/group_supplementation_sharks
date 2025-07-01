@@ -1,6 +1,7 @@
 # Importing modules
 from astropy.io import fits
 import matplotlib.pylab as plt
+imprt matplotlib
 import matplotlib.gridspec as gridspec
 import numpy as np
 from astropy.cosmology import Planck13
@@ -36,7 +37,7 @@ plt.rcParams.update({
 columns_to_read = ['id_galaxy_sky', 'id_group_sky', 'ra', 'dec', 'zobs', 'zcos', 'total_ap_dust_Z_VISTA', 'total_ab_dust_Z_VISTA', 'total_ap_dust_Y_VISTA', 'total_ap_dust_J_VISTA', 'total_ap_dust_H_VISTA', 'total_ap_dust_K_VISTA','total_ap_dust_u_VST','total_ab_dust_u_VST',  'total_ap_dust_g_VST', 'total_ap_dust_r_VST', 'total_ab_dust_r_VST', 'total_ap_dust_i_VST']
 
 # Read only those columns
-table = pq.read_table('/research/astrodata/4most/WAVES/mock_catalogues/SHARK/official-0-2-0/waves_wide_gals.parquet', columns=columns_to_read)
+table = pq.read_table('/mnt/lustre/projects/astro/general/sp624/waves_mocks/v0.3.0/wide/waves_wide_gals.parquet', columns=columns_to_read)
 
 # Optional: convert to pandas if needed
 df = table.to_pandas()
