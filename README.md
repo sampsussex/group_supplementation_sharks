@@ -28,3 +28,13 @@ In **GAMA_supplementation_HMF.ipynb**, we use our newly derived halo masses to e
 **GAMA_supplementation_HMF_mean.ipynb** is a duplicate of the former notebook, but instead using the geometric mean of our supplemented luminosity mass and the dynamical mass.
 
 ![HMF mean](https://github.com/toddlcook/group_supplementation/blob/main/plots/HMF_mean.jpg)
+
+### Scripts (SLURM-friendly)
+The notebooks are mirrored in the `scripts/` directory as standalone Python scripts that can be run in batch environments.
+
+Typical run order and checkpoints:
+1. `scripts/Euclid_photo_groups.py` produces the halo profile checkpoint at `outputs/halo_profile.npz`.
+2. `scripts/GAMA_supplementation.py` loads the halo profile, runs supplementation, and writes `outputs/GAMA_groups_supplemented.csv` plus `outputs/probdf_with_probs.csv`.
+3. `scripts/GAMA_supplementation_HMF.py` and `scripts/GAMA_supplementation_HMF_mean.py` load the supplemented groups CSV and write plots under `outputs/plots/`.
+
+Each script accepts `--output-dir` (default `outputs/`) and data input paths via CLI flags. Use `--help` on any script for the full list of options.
